@@ -1,0 +1,158 @@
+
+CGI 
+----
+Developer = Program + Admin task 
+
+Webframe work 
+--------------
+Developer = Program 
+
+Flask
+------
+micro frame work 
+=====
+
+ERP/
+  -- app.py
+  -- templates/
+	login.html
+	display.html
+	...
+	...
+	...
+  -- static/
+	..js
+  -- file1
+  -- file.db
+
+#################################
+
+def decoratorFunction(newFeature):
+	def wrapper(*args,**kwargs):
+		newFeature()
+	return wrapper
+
+
+def app1():
+	...
+
+app1 = decoratorFunction(app1)
+app1()
+<or>
+
+@decoratorFunction
+def app2():
+	....
+
+app2()
+	
+#################################
+
+url redirect
+-------------
+redirect(url_for('functionName'))
+
+/dept/<user_input> <== sales 
+			 |---> Requested dept is sales dept
+		   <== prod 
+			 |---> Requested dept is production dept total emp's are:120
+
+		   <== Other
+			 |---> Sorry your requested dept is not found
+
+http://127.0.0.1:5000/dept/sales 
+
+
+#####################################
+
+Client ----------request-------->--------[Server] --> Execute the server Code
+								|
+	-------------<-----------------------------------------
+			response 
+				|->1. Webpage = <html>...</html> + {{data}}
+				|->2. Data = Json - Data only
+import requests <== (1)
+
+requests.get() - read/get the data/resource 
+
+requests.get(URL) ->status_code 
+			200 - OK
+
+r = requests.get(URL)  <== (2)
+
+r.status_code <== (3)
+
+r.headers <== (4)
+---------
+ |
+ |--> {} //dict - About URL info details 
+
+Webpage response 
+
+r.text <== getter 
+  ----// webpage resonse 
+
+-------------------------------------------------
+import requests
+
+url = "https://www.google.com"
+
+r = requests.get(url)
+if(r.status_code != 200):
+	print("Web requests is failed")
+	exit()
+
+if('text/html' in r.headers['Content-Type']):
+	print('Requested URL is webpage')
+	web_page = r.text # To get the content
+	with open('test1.html','w') as wobj:
+		wobj.write(web_page)
+
+---------------------------------------------------------------------
+jinaj2 - templateCode
+------
+ |-> dynamic value 
+
+ |-> {{placeholder}} //
+
+My living City:_____ 
+
+<h1>My living City:{{jinja_placeholder}}</h1>
+		  ----		   -----
+
+return render_template('display.html',Template_variable = Flask_input_variable)
+		
+			
+
+<h1>My living City:{{Template_variable}}</h1>
+		  ----		   -----
+
+---------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
